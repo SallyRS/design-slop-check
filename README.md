@@ -1,6 +1,6 @@
 # Design Slop Check
 
-Design Slop Check is a skill for AI coding agents. It checks an HTML page or an HTML slide deck against Sally Slater's AI slop design list and writes one fix list that another agent can work through item by item. For each problem the list gives the pattern, where it is on the page, the evidence and a fix. The skill changes nothing on the page itself.
+Design Slop Check is a skill for AI coding agents. It checks an HTML page or an HTML slide deck against an exhaustive AI slop design list and writes one fix list that another agent can work through item by item. For each problem the list gives the pattern, where it is on the page, the evidence and a fix. The skill changes nothing on the page itself.
 
 ## Who it's for
 
