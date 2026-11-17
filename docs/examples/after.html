@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Larkspur Tool Library</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: #17221f; background: #f3f6f8; line-height: 1.55; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+  header.hero { padding: 72px 0 56px; border-bottom: 3px solid #17221f; }
+  header .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
+  h1 { font-size: 46px; line-height: 1.08; margin: 0 0 16px; font-weight: 700; }
+  header p { font-size: 19px; margin: 0 0 24px; max-width: 34em; }
+  .btn { display: inline-block; padding: 12px 22px; background: #1f5f4a; color: #fff; text-decoration: none; font-family: system-ui, sans-serif; font-weight: 600; border-radius: 3px; }
+  .hours { font-family: system-ui, sans-serif; font-size: 15px; border-top: 1px solid #17221f; padding-top: 12px; }
+  .hours strong { display: block; font-size: 17px; margin-bottom: 4px; }
+  section { padding: 56px 0; }
+  h2 { font-size: 28px; margin: 0 0 20px; }
+  .how { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 48px; }
+  .how h3 { margin: 0 0 4px; font-size: 18px; }
+  .how p { margin: 0; }
+  .how .wide { grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid #c5d3cf; }
+  .count { background: #e2ebe8; }
+  .count .wrap { display: flex; gap: 32px; align-items: baseline; flex-wrap: wrap; }
+  .count .n { font-size: 64px; font-weight: 700; color: #1f5f4a; line-height: 1; }
+  .count p { margin: 0; max-width: 28em; }
+  ::selection { background: #1f5f4a; color: #fff; }
+  a:focus-visible { outline: 3px solid #17221f; outline-offset: 3px; }
+  :root { accent-color: #1f5f4a; }
+  footer { padding: 32px 0; font-family: system-ui, sans-serif; font-size: 14px; color: #4a5a55; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Borrow a drill on Saturday. Return it by the next one.</h1>
+      <p>Larkspur Tool Library lends drills, ladders, saws and 400 other tools to anyone with a library card. No sign-up fee.</p>
+      <a class="btn" href="#join">Get a library card</a>
+    </div>
+    <div class="hours"><strong>Open Saturdays, 10 to 2</strong>14 Pine Street, behind the co-op.</div>
+  </div>
+</header>
+<section>
+  <div class="wrap">
+    <h2>How borrowing works</h2>
+    <div class="how">
+      <div><h3>Check out in under a minute</h3><p>Show your card at the desk. We scan the tool and write down the return date.</p></div>
+      <div><h3>The deposit comes back</h3><p>Tools over $50 carry a $20 deposit. You get it back when the tool is returned.</p></div>
+      <div class="wide"><h3>Cleaned after every loan</h3><p>A volunteer wipes down and tests each tool before it goes back on the shelf. If a blade is dull, it is sharpened first.</p></div>
+    </div>
+  </div>
+</section>
+<section class="count">
+  <div class="wrap">
+    <div class="n">412</div>
+    <p>tools on the shelves, lent out more than 3,000 times since 2022. Larkspur Hardware, Eastside Credit Union and Pine Street Co-op pay for new stock.</p>
+  </div>
+</section>
+<footer id="join"><div class="wrap">Larkspur Tool Library &middot; 14 Pine Street</div></footer>
+</body>
+</html>

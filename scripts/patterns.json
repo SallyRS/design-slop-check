@@ -1,0 +1,1319 @@
+[
+ {
+  "n": 1,
+  "name": "Eyebrow label",
+  "slides_name": "Eyebrow labels",
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "kicker-above-heading",
+   "hero-eyebrow-chip"
+  ],
+  "needs_confirming": false,
+  "description": "A tiny uppercase, letter-spaced label sits above the heading and repeats what the heading says. Impeccable bans it outright.",
+  "fix": "Delete the small uppercase label, or fold what it adds into the heading itself."
+ },
+ {
+  "n": 2,
+  "name": "Pill chip above the hero",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "impeccable",
+   "script"
+  ],
+  "impeccable_rules": [
+   "hero-eyebrow-chip"
+  ],
+  "needs_confirming": false,
+  "description": "A rounded announcement badge over a centered headline. It looks clickable and competes with the headline.",
+  "fix": "Remove the pill above the headline. If the announcement matters, give it its own line in the nav or a short sentence under the headline."
+ },
+ {
+  "n": 3,
+  "name": "Default hero",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Centered headline, one line of subtext, a filled button and an outline button, then a gray row of logos.",
+  "fix": "Rebuild the first screen around this product: lead with something only it can show (a real screenshot, a number with a source, a specific promise) instead of the stock headline, subline, two buttons and logo row."
+ },
+ {
+  "n": 4,
+  "name": "Identical card grid",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Three same-size cards, each with an icon, a short heading and two lines of text, used as the whole page structure.",
+  "fix": "Break the grid: give the most important item more room, merge the weaker ones into a list, or vary the layout so the items are not three identical boxes."
+ },
+ {
+  "n": 5,
+  "name": "Icon tile above the heading",
+  "slides_name": "Icon tiles",
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "icon-tile-stack"
+  ],
+  "needs_confirming": false,
+  "description": "A small tinted rounded square holding an icon, stacked over every heading. Impeccable calls it the universal AI feature-card template.",
+  "fix": "Drop the tinted square behind each icon; use the icon inline at text size, or remove it if it only decorates."
+ },
+ {
+  "n": 6,
+  "name": "Nested cards",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code+render",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "nested-cards"
+  ],
+  "needs_confirming": false,
+  "description": "Cards inside cards inside cards, each with its own border and shadow.",
+  "fix": "Keep one level of card. Remove the border, shadow and fill from the inner boxes and separate their contents with spacing instead."
+ },
+ {
+  "n": 7,
+  "name": "Hero-metric row",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "One big number with a small label, then a row of round supporting stats.",
+  "fix": "Keep only the figures that matter, give each a source or context, and set them in the running layout rather than a row of big numbers."
+ },
+ {
+  "n": 8,
+  "name": "Fake sequence numbers",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "numbered-section-labels"
+  ],
+  "needs_confirming": false,
+  "description": "01 / 02 / 03 on sections that aren't steps. The numbers carry no information.",
+  "fix": "Remove the 01 / 02 / 03 numbers unless the sections really are ordered steps."
+ },
+ {
+  "n": 9,
+  "name": "Stock page order",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Hero, logo row, three features, stats, three pricing tiers, call to action, four-column footer. Every page, every product.",
+  "fix": "Order the sections by what this reader needs next, and cut the sections that are only there because the template has them."
+ },
+ {
+  "n": 10,
+  "name": "Monotonous spacing",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "monotonous-spacing"
+  ],
+  "needs_confirming": false,
+  "description": "The same gap everywhere: between a heading and its text, and between whole sections. Nothing groups, so nothing reads as related.",
+  "fix": "Use two or three spacing sizes: tight between a heading and its text, wider between groups, widest between sections."
+ },
+ {
+  "n": 11,
+  "name": "Oversized hero headline",
+  "slides_name": "Giant headlines",
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "oversized-h1"
+  ],
+  "needs_confirming": false,
+  "description": "A full sentence set at display size, filling the first screen and pushing everything else below the fold.",
+  "fix": "Shorten the headline to a few words, or set the full sentence smaller (around 40–56px) so the first screen shows more than the headline."
+ },
+ {
+  "n": 12,
+  "name": "Every button is primary",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Main and secondary actions look identical, so the page never says which one matters.",
+  "fix": "Make one action the filled primary button and restyle the others as secondary (outline or text link)."
+ },
+ {
+  "n": 13,
+  "name": "Unneeded modal",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A pop-up that blocks the page for a small, reversible choice that didn't need to interrupt.",
+  "fix": "Replace the modal with an inline control or an undo; keep modals for choices that need full attention or protect data."
+ },
+ {
+  "n": 14,
+  "name": "Design drift between pages",
+  "slides_name": "Brand drift between slides",
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Fonts, corner radius, button color and nav style change from one page of the same site to the next.",
+  "fix": "Pick one set of fonts, corner radius, button style and nav, and apply it to every page or slide."
+ },
+ {
+  "n": 15,
+  "name": "Cardocalypse: everything boxed",
+  "slides_name": "Cardocalypse",
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Every heading, paragraph, contact line and button sits in its own bordered box. Impeccable calls cards \"the lazy container.\"",
+  "fix": "Take most of the boxes away. Group related text with spacing and headings, and keep a box only where something must stand apart."
+ },
+ {
+  "n": 16,
+  "name": "Uneven spacing",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Rows in one list with different heights and gaps, sibling cards with different padding, odd values like 13px and 7px. The opposite failure from monotonous spacing, and just as common.",
+  "fix": "Move every padding, margin and gap onto one spacing scale (for example 4, 8, 16, 24, 32, 48px) and make sibling items use the same values."
+ },
+ {
+  "n": 17,
+  "name": "Button pile and unsourced proof",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Three or more buttons under the headline, then a row of avatar dots and five stars with no source.",
+  "fix": "Keep one primary and at most one secondary action under the headline. Remove star ratings and user counts that have no named source, or link them to the source."
+ },
+ {
+  "n": 18,
+  "name": "A visual on every section",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": true,
+  "description": "Every section gets its own picture, alternating left and right, whether or not it explains anything.",
+  "fix": "Give pictures only to the sections where a picture explains something; let the other sections be text."
+ },
+ {
+  "n": 19,
+  "name": "The cleaned-up template",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "What a page falls back to once the obvious slop is removed: flat gray #161616, Inter, white text and the brand color on one button, even for a warm product like a bakery.",
+  "fix": "Choose colors and type that fit this product rather than the flat dark gray, Inter and one accent button."
+ },
+ {
+  "n": 20,
+  "name": "Dead empty space",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A small block floating dead center in a section that is mostly empty. Taste fails any section more than half empty.",
+  "fix": "Shrink the section to fit its content, or give the empty area real content. Do not leave a small block floating in a large empty area."
+ },
+ {
+  "n": 21,
+  "name": "Tilted, staggered and overlapping",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "impeccable",
+   "script"
+  ],
+  "impeccable_rules": [
+   "text-occlusion"
+  ],
+  "needs_confirming": false,
+  "description": "Cards rotated at angles and stacked over each other to look playful, so edges and words get covered.",
+  "fix": "Set the cards straight and in line. Remove rotations, negative margins and overlaps that cover text."
+ },
+ {
+  "n": 22,
+  "name": "Mixed styles on one page",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Three button styles, two card styles and three link looks on the same screen. Taste requires one of each.",
+  "fix": "Keep one style per role: one primary button style, one secondary, one card style, one link style."
+ },
+ {
+  "n": 23,
+  "name": "Overused fonts",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "overused-font"
+  ],
+  "needs_confirming": false,
+  "description": "The same handful of free faces on every generated site: Inter, Roboto, Geist, Space Grotesk, Plus Jakarta Sans, Fraunces, Instrument Serif.",
+  "fix": "Replace the font with one picked for this brand."
+ },
+ {
+  "n": 24,
+  "name": "Italic serif display headline",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "italic-serif-display"
+  ],
+  "needs_confirming": false,
+  "description": "An oversized italic serif (Fraunces, Recoleta, Playfair) as the hero headline. Impeccable calls it the universal AI-startup hero.",
+  "fix": "Set the headline upright, in the brand's display face, at a reasonable size."
+ },
+ {
+  "n": 25,
+  "name": "One accented word",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A single headline word switched to italic serif, a color, or a highlighter mark.",
+  "fix": "Set the whole headline in one style; drop the colored, italic or highlighted word."
+ },
+ {
+  "n": 26,
+  "name": "Monospace as costume",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Code-style labels on marketing copy to look technical, not because the text is code or data.",
+  "fix": "Use the body or heading font for this text; keep monospace for real code, commands and data."
+ },
+ {
+  "n": 27,
+  "name": "Flat type hierarchy",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "flat-type-hierarchy"
+  ],
+  "needs_confirming": false,
+  "description": "Headings and body text are nearly the same size and weight, so the eye has no starting point.",
+  "fix": "Make each heading level clearly bigger than the next (at least about 1.25 times) and keep body text plainly smaller."
+ },
+ {
+  "n": 28,
+  "name": "Crushed letter spacing",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "extreme-negative-tracking"
+  ],
+  "needs_confirming": false,
+  "description": "Display type tightened until the letters touch and start to merge. The same tight tracking on small text hurts reading even more.",
+  "fix": "Loosen the letter spacing to no tighter than about -0.02em so letters do not touch."
+ },
+ {
+  "n": 29,
+  "name": "Tiny, faint copy",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "tiny-text",
+   "low-contrast",
+   "gray-on-color"
+  ],
+  "needs_confirming": false,
+  "description": "Small light-gray text that fails contrast so everything technically fits.",
+  "fix": "Raise text to at least 14px (12px for minor labels) and darken it to at least 4.5:1 contrast with its background."
+ },
+ {
+  "n": 30,
+  "name": "Headings at weight 800–900",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Every heading set extra-bold, so weight shouts instead of size and spacing doing the work.",
+  "fix": "Set headings at 600–700 and let size and spacing carry the hierarchy."
+ },
+ {
+  "n": 31,
+  "name": "Too many sizes and weights",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Seven type sizes and five weights on one small panel, with no scale behind them.",
+  "fix": "Cut the type down to a small scale (about 4–5 sizes) and two or three weights."
+ },
+ {
+  "n": 32,
+  "name": "Mixed number formats",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Cents on one figure, none on the next, a leading zero, a \"k\", a stray space before the percent sign.",
+  "fix": "Use one number format throughout: the same decimals, the same unit placement, no stray spaces before %."
+ },
+ {
+  "n": 33,
+  "name": "Purple-to-blue gradient",
+  "slides_name": "Gradient everything",
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "ai-color-palette"
+  ],
+  "needs_confirming": false,
+  "description": "Violet into indigo into blue, often over the whole hero. Impeccable and most sources call it the most recognizable AI palette.",
+  "fix": "Replace the purple-to-blue gradient with the brand's own colors, or a flat color."
+ },
+ {
+  "n": 34,
+  "name": "Gradient text",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "gradient-text"
+  ],
+  "needs_confirming": false,
+  "description": "Headlines and big numbers filled with a gradient instead of a solid color.",
+  "fix": "Fill the text with a solid color."
+ },
+ {
+  "n": 35,
+  "name": "Cream, serif and terracotta",
+  "slides_name": "Cream with muted red",
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "cream-palette"
+  ],
+  "needs_confirming": false,
+  "description": "Warm off-white background, high-contrast serif headline, terracotta or signal-red button. Nicknamed \"the Claude look.\"",
+  "fix": "Choose a palette and type from the brand, not the stock cream, high-contrast serif and terracotta set."
+ },
+ {
+  "n": 36,
+  "name": "Dark neon",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Near-black page with one acid-green, cyan or vermilion accent that glows.",
+  "fix": "Lighten the page or drop the neon accent and glow; pick an accent from the brand."
+ },
+ {
+  "n": 37,
+  "name": "Glassmorphism",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Frosted, blurred, see-through panels over colored blobs, used as decoration rather than to solve a layering problem.",
+  "fix": "Replace the frosted panels with solid surfaces."
+ },
+ {
+  "n": 38,
+  "name": "Color-bar accents (side stripe)",
+  "slides_name": "Color-bar accents",
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "side-tab",
+   "border-accent-on-rounded"
+  ],
+  "needs_confirming": false,
+  "description": "A thick colored bar on one edge of a rounded card. Impeccable calls it the most recognizable tell of AI-generated interfaces.",
+  "fix": "Remove the thick colored edge stripe; use a heading, icon or spacing to mark the item."
+ },
+ {
+  "n": 39,
+  "name": "Rounding everywhere",
+  "slides_name": "Excessive rounding",
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Pills and very soft corners on every button, input, chip and card, whether or not it helps.",
+  "fix": "Use one modest radius (for example 4–8px) for boxes and keep fully rounded shapes for the few elements that need them."
+ },
+ {
+  "n": 40,
+  "name": "Decorative grid and stripes",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "codex-grid-background",
+   "repeating-stripes-gradient"
+  ],
+  "needs_confirming": false,
+  "description": "A tiled grid-line or diagonal-stripe background on a page that isn't a map, canvas or blueprint.",
+  "fix": "Remove the decorative grid or stripe background."
+ },
+ {
+  "n": 41,
+  "name": "Untouched component-library look",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "The shadcn/ui defaults shipped as-is: zinc grays, black button, 6px corners, gray badge.",
+  "fix": "Change the component library's default tokens (grays, radius, primary color, fonts) to the brand's."
+ },
+ {
+  "n": 42,
+  "name": "Look picked by category",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Wellness gets cream and serif, developer tools get black and neon, regardless of who uses it or where.",
+  "fix": "Pick the look from the brand and audience, not from what the product category usually looks like."
+ },
+ {
+  "n": 43,
+  "name": "Neon borders",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Bright magenta or cyan outlines on dark cards instead of a quiet hairline.",
+  "fix": "Replace the bright outlines with a quiet border or none."
+ },
+ {
+  "n": 44,
+  "name": "Five lavenders",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Text in many near-identical tints of one hue instead of two or three neutral text colors.",
+  "fix": "Cut the text colors to two or three: one for body, one for muted text, one accent."
+ },
+ {
+  "n": 45,
+  "name": "Everything highlighted",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": true,
+  "description": "Heading, icon, rule, text, tags and link all in the accent color, so nothing stands out.",
+  "fix": "Keep the accent color for one or two jobs (for example the primary button and links) and set everything else in neutral colors."
+ },
+ {
+  "n": 46,
+  "name": "Near-black on near-black",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Page, card, panel and interface in four almost identical blacks, with dark text that disappears into them.",
+  "fix": "Make surfaces clearly different in lightness and keep text at 4.5:1 contrast against them."
+ },
+ {
+  "n": 47,
+  "name": "Shadows on everything",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "gpt-thin-border-wide-shadow"
+  ],
+  "needs_confirming": false,
+  "description": "Every card wears the same hairline border plus a wide soft shadow, so nothing stands out.",
+  "fix": "Use either a border or a shadow on cards, not both, and only where the card must stand apart."
+ },
+ {
+  "n": 48,
+  "name": "Glow and halo",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "dark-glow",
+   "radial-halo",
+   "radial-spotlight-glow"
+  ],
+  "needs_confirming": false,
+  "description": "A colored radial \"spotlight\" behind the headline and glowing colored shadows on buttons.",
+  "fix": "Remove the colored glow and spotlight; use neutral shadows if any."
+ },
+ {
+  "n": 49,
+  "name": "Hard offset shadow",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "hard-offset-shadow"
+  ],
+  "needs_confirming": false,
+  "description": "A thick black block shadow (neobrutalist style) dropped onto an otherwise conventional corporate page.",
+  "fix": "Replace the hard block shadow with a small soft shadow, or remove it."
+ },
+ {
+  "n": 50,
+  "name": "Giant shadows",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Every card floats far above the page or slide on a big, dark, blurry shadow.",
+  "fix": "Cut the shadow to a small blur (under about 24px) and a light color."
+ },
+ {
+  "n": 51,
+  "name": "Emoji as icons",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Emoji standing in for an icon set in navigation, cards and lists.",
+  "fix": "Replace the emoji with icons from one icon set, or remove them."
+ },
+ {
+  "n": 52,
+  "name": "Sparkle for \"AI\"",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "The ✨ icon marking every AI feature, usually with a purple gradient button.",
+  "fix": "Remove the sparkle; name what the feature does instead."
+ },
+ {
+  "n": 53,
+  "name": "Placeholder art and people",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "impeccable",
+   "script"
+  ],
+  "impeccable_rules": [
+   "shape-assembled-illustration",
+   "broken-image"
+  ],
+  "needs_confirming": false,
+  "description": "\"Illustrations\" built from basic circles and rectangles, initial-only avatars for made-up people, and broken image boxes.",
+  "fix": "Replace placeholder shapes, initials and broken images with real images of the product or people, or remove them."
+ },
+ {
+  "n": 54,
+  "name": "Fake status and window chrome",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "impeccable",
+   "script"
+  ],
+  "impeccable_rules": [
+   "pulsing-dot"
+  ],
+  "needs_confirming": false,
+  "description": "A pulsing \"live\" dot with no live data behind it, and red-yellow-green window dots on a drawn terminal.",
+  "fix": "Remove the pulsing dot and fake window dots unless they show real live status or a real window."
+ },
+ {
+  "n": 55,
+  "name": "Fake typing cursor",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "blinking-cursor"
+  ],
+  "needs_confirming": false,
+  "description": "A blinking cursor animated into a hero headline where nothing can be typed.",
+  "fix": "Remove the blinking cursor from the headline."
+ },
+ {
+  "n": 56,
+  "name": "Same motion everywhere",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Every section fades up on scroll the same way, and every card lifts on hover.",
+  "fix": "Animate only the one or two moments that need it; let the other sections appear without the same fade or lift."
+ },
+ {
+  "n": 57,
+  "name": "Bounce and elastic easing",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "bounce-easing"
+  ],
+  "needs_confirming": false,
+  "description": "Springy, wobbling animations on buttons and icons.",
+  "fix": "Use a plain ease-out curve with no overshoot."
+ },
+ {
+  "n": 58,
+  "name": "Auto-scrolling logo marquee",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "impeccable"
+  ],
+  "impeccable_rules": [
+   "marquee"
+  ],
+  "needs_confirming": false,
+  "description": "A strip of logos that slides past forever, so half of it is hidden at any moment.",
+  "fix": "Show the logos in a still row, or drop the logo strip."
+ },
+ {
+  "n": 59,
+  "name": "Unthemed browser defaults",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Default selection color, focus ring, scrollbar and link blue. Impeccable calls these the cheapest sign a page was assembled rather than designed.",
+  "fix": "Style the text selection, focus ring, links and scrollbars to match the brand (for example ::selection, :focus-visible, accent-color)."
+ },
+ {
+  "n": 60,
+  "name": "Fly-in from every direction",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "On load, the headline slides in from the left, the text from the right, the button from below and a shape spins in from above.",
+  "fix": "Bring the hero elements in together, from the same direction or not at all."
+ },
+ {
+  "n": 61,
+  "name": "Floating loops",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Decorative shapes bob and rotate forever behind the content.",
+  "fix": "Stop the decorative loops, or run them once."
+ },
+ {
+  "n": 62,
+  "name": "Glossy 3D hero orb",
+  "slides_name": "Generic 3D imagery",
+  "scope": "both",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A glowing glass sphere, chrome blob or purple nebula as the hero image instead of the product.",
+  "fix": "Replace the 3D orb or blob with the real product, a real photo or nothing."
+ },
+ {
+  "n": 63,
+  "name": "AI clip-art",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Glowing brains, circuit lines, robots and holograms standing in for \"AI\" instead of showing what the AI produces.",
+  "fix": "Replace the clip-art with a real image of the product or people, or remove it."
+ },
+ {
+  "n": 64,
+  "name": "Text baked into an image",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Headline, logo and a fake button drawn inside the picture, slightly soft, unclickable and in the wrong fonts.",
+  "fix": "Move the words out of the image into live HTML text."
+ },
+ {
+  "n": 65,
+  "name": "Image that doesn't blend",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A generated image pasted as a hard rectangle with its own different black, sitting on the page instead of in it.",
+  "fix": "Use an image whose background matches the page, or crop it, or place it on a surface that fits it."
+ },
+ {
+  "n": 66,
+  "name": "Captions and disclaimers under images",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": true,
+  "description": "A caption under every picture that restates or apologizes for it, plus an \"images are examples\" note.",
+  "fix": "Remove captions that restate or apologize for the image, and the 'examples only' note."
+ },
+ {
+  "n": 67,
+  "name": "Carousels and timed tabs",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A slider with arrows and dots, or tabs that switch by themselves on a timer before you finish reading.",
+  "fix": "Show the items all at once (a list or grid), and never switch tabs on a timer."
+ },
+ {
+  "n": 68,
+  "name": "Letter-in-a-circle icons",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Gray circles with a first letter where the real app icon should be.",
+  "fix": "Use each app's real icon, or show the name alone."
+ },
+ {
+  "n": 69,
+  "name": "Generic product mockup",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A made-up dashboard with gray boxes, a bar chart and a chat bubble standing in for the actual product.",
+  "fix": "Show the real product screen, or remove the mockup."
+ },
+ {
+  "n": 70,
+  "name": "Glowing pills",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Counts, plan names and keyboard shortcuts in bright pills with colored glows.",
+  "fix": "Remove the glow from the pills and use a quiet fill."
+ },
+ {
+  "n": 71,
+  "name": "Badge spam",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "\"PRO,\" \"New ✨,\" \"Beta 🚀\" and \"Hot 🔥\" badges on nearly every nav item.",
+  "fix": "Keep at most one badge, where it is truly news; remove the rest."
+ },
+ {
+  "n": 72,
+  "name": "Rainbow chart",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "One data series drawn in six colors, with pill-shaped glowing bars and uppercase day labels.",
+  "fix": "Draw one data series in one color; use color only to pick out the point that matters."
+ },
+ {
+  "n": 73,
+  "name": "Sparklines on every stat card",
+  "slides_name": null,
+  "scope": "web",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Each stat gets a tinted icon, a tiny chart and a change with nothing to compare it to.",
+  "fix": "Keep a sparkline only where the trend matters and has data behind it; remove the change figures that have no source or period."
+ },
+ {
+  "n": 74,
+  "name": "Equal chart cards",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Four cards of the same size, each with the same chart shape. No main chart, so nothing leads.",
+  "fix": "Give the main chart the most space and make the others smaller or cut them."
+ },
+ {
+  "n": 75,
+  "name": "Gradient sparkle logo",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A purple-to-blue tile with a sparkle and a gradient wordmark, or a glossy glowing orb as the mark.",
+  "fix": "Use the real logo, or design one that is not a purple-to-blue tile with a sparkle."
+ },
+ {
+  "n": 76,
+  "name": "Mismatched icons",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Icons in different sizes, colors and stroke weights, some filled and some outlined, nudged off the column.",
+  "fix": "Use one icon set at one size, one stroke weight and one color."
+ },
+ {
+  "n": 77,
+  "name": "Repeated templates",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": true,
+  "description": "Every slide uses the same title, three bullets and image-on-the-right grid, whatever the content.",
+  "fix": "Vary the layouts to fit each slide or section's content instead of reusing one template."
+ },
+ {
+  "n": 78,
+  "name": "Perfect sameness",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": true,
+  "description": "Equal cards, equal spacing and equal weight, so no point stands out.",
+  "fix": "Make the main point bigger or bolder than the rest so the eye knows where to go."
+ },
+ {
+  "n": 79,
+  "name": "Off-brand colors",
+  "slides_name": null,
+  "scope": "slides",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": true,
+  "description": "A generated image lands close to the brand color but not on it. Check against the real hex codes.",
+  "fix": "Recolor the generated image to the exact brand colors, or use a real brand asset."
+ },
+ {
+  "n": 80,
+  "name": "Approximated logo",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "The model redraws the logo from memory: wrong typeface, softened shape, a misspelled or merged letter.",
+  "fix": "Use the real logo file."
+ },
+ {
+  "n": 81,
+  "name": "Garbled text in images",
+  "slides_name": null,
+  "scope": "slides",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Words inside a generated image are misspelled, doubled or made of letter-like shapes. Read every word at 100% zoom.",
+  "fix": "Regenerate or replace the image so no garbled letters remain, or remove the text from the image."
+ },
+ {
+  "n": 82,
+  "name": "Production slips",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "impeccable",
+   "script"
+  ],
+  "impeccable_rules": [
+   "text-overflow",
+   "clipped-overflow-container",
+   "broken-image",
+   "script-error"
+  ],
+  "needs_confirming": false,
+  "description": "Text overflowing its box, leftover placeholders, and a logo that sits in a different spot than on other slides.",
+  "fix": "Fix the slip: remove placeholder text, make overflowing text fit, fix broken images, and keep the logo in the same place on every slide."
+ },
+ {
+  "n": 83,
+  "name": "Takeaway banner",
+  "slides_name": null,
+  "scope": "slides",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A boxed \"key takeaway\" strip at the bottom of slide after slide.",
+  "fix": "Remove the takeaway box; make the slide title state the takeaway."
+ },
+ {
+  "n": 84,
+  "name": "Italic serif flourish",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "A bold sans-serif title that ends in an italic serif phrase, on every kind of slide.",
+  "fix": "Set the whole title in one face and style."
+ },
+ {
+  "n": 85,
+  "name": "Dashboard stat tiles",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Rows of equal tiles with round numbers, like an app screen, giving every number the same weight.",
+  "fix": "Show the one or two numbers that matter with their context, instead of a row of equal tiles."
+ },
+ {
+  "n": 86,
+  "name": "Groups of three by habit",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "judgement",
+  "checked_by": [
+   "judgement"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Two real points padded into three boxes. The third one is usually the vaguest.",
+  "fix": "Use as many items as there are real points; drop the padding item."
+ },
+ {
+  "n": 87,
+  "name": "Centered everything",
+  "slides_name": null,
+  "scope": "both",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "Title, bullets and body all centered, so the eye has no edge to start from.",
+  "fix": "Left-align body text and bullets; keep centering for a title slide or a single short line."
+ },
+ {
+  "n": 88,
+  "name": "Bullets left, image right",
+  "slides_name": null,
+  "scope": "slides",
+  "detect": "code+render",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "needs_confirming": false,
+  "description": "The default Copilot layout repeated slide after slide.",
+  "fix": "Change the layout to fit the content: a full-width image, a chart, a quote, or text alone."
+ },
+ {
+  "n": 101,
+  "name": "Content pushed to the top or bottom",
+  "slides_name": null,
+  "scope": "slides",
+  "detect": "code",
+  "checked_by": [
+   "script"
+  ],
+  "impeccable_rules": [],
+  "extra": true,
+  "needs_confirming": true,
+  "description": "On a content slide, the content is shoved up under the heading (or down toward the footer) instead of sitting in the space between them. The normal space between the heading and the content is fine; the problem is a big empty band on one side and almost none on the other, or a whole deck leaning the same way. Extra check, not on Sally's published list.",
+  "fix": "Center the content block in the space between the heading and the footer, or spread it to fill that space; don't pin it under the title."
+ }
+]
