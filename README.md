@@ -1,10 +1,12 @@
-# Design Slop Check
+# Design Slop Check: find AI-generated design in HTML pages and slide decks
+
+This is a Claude Code and Codex plugin, and an Agent Plugins package, that answers "does this look AI-generated?" for a landing page, website or HTML deck. Install it as a plugin in Claude Code or Codex, upload it to Cowork, or load it in any Agent Plugins client.
 
 Design Slop Check is a skill for AI coding agents. It checks an HTML page or an HTML slide deck against an exhaustive AI slop design list and writes one fix list that another agent can work through item by item. For each problem the list gives the pattern, where it is on the page, the evidence and a fix. The skill changes nothing on the page itself.
 
 ## Who it's for
 
-People who build pages or slide decks with AI agents and want the result to not look AI-made.
+People who build landing pages, websites or slide decks with AI agents (Claude Code, Codex, Cursor and others) and want the result to not look AI-made. Use it as an AI slop checker before a page or deck ships.
 
 ## The list it is based on
 
