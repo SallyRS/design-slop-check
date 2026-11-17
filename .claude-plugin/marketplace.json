@@ -1,0 +1,23 @@
+{
+  "name": "design-slop-check",
+  "description": "Design Slop Check: find AI slop design patterns on an HTML page or slide deck and get one fix list.",
+  "owner": {
+    "name": "Sally Slater"
+  },
+  "plugins": [
+    {
+      "name": "design-slop-check",
+      "description": "Checks an HTML page or HTML slide deck against Sally Slater's AI slop design list and writes one fix list for another agent to work through.",
+      "version": "1.0.0",
+      "source": "./",
+      "skills": ["./skills/design-slop-check"],
+      "author": {
+        "name": "Sally Slater"
+      },
+      "homepage": "https://github.com/SallyRS/design-slop-check",
+      "repository": "https://github.com/SallyRS/design-slop-check",
+      "license": "MIT",
+      "keywords": ["design", "ai-slop", "html", "slides", "audit", "skill"]
+    }
+  ]
+}

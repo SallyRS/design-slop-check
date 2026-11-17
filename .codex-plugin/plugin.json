@@ -1,0 +1,28 @@
+{
+  "name": "design-slop-check",
+  "version": "1.0.0",
+  "description": "Checks an HTML page or HTML slide deck against Sally Slater's AI slop design list and writes one fix list for another agent to work through.",
+  "author": {
+    "name": "Sally Slater",
+    "url": "https://github.com/SallyRS"
+  },
+  "homepage": "https://github.com/SallyRS/design-slop-check",
+  "repository": "https://github.com/SallyRS/design-slop-check",
+  "license": "MIT",
+  "keywords": ["design", "ai-slop", "html", "slides", "audit", "skill"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design Slop Check",
+    "shortDescription": "Check an HTML page or deck for AI slop design and get one fix list.",
+    "longDescription": "Checks an HTML page or HTML slide deck against Sally Slater's AI slop design list of 88 patterns. Runs scripted checks in headless Chrome, has the agent judge the rest from screenshots, and writes one fix list another agent can work through. It flags problems and changes nothing on the page.",
+    "developerName": "Sally Slater",
+    "category": "Design",
+    "capabilities": ["Read", "Write", "Execute"],
+    "websiteURL": "https://github.com/SallyRS/design-slop-check",
+    "defaultPrompt": [
+      "Run the design slop check on index.html.",
+      "Does this landing page look AI-generated? Give me a fix list.",
+      "Slop check this HTML deck."
+    ]
+  }
+}

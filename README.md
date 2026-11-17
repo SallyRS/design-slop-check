@@ -8,23 +8,48 @@ People who build pages or slide decks with AI agents and want the result to not 
 
 ## The list it is based on
 
-The skill checks 88 patterns from [Sally Slater's AI slop design list](https://share.innovaitionpartners.com/content/ai-slop-design/). The pattern names and descriptions in `scripts/patterns.json` come from that list. The skill adds one check of its own, #101 (content pushed to the top or bottom of a slide), which is not on the published list.
+The skill checks 88 patterns from [Sally Slater's AI slop design list](https://share.innovaitionpartners.com/content/ai-slop-design/). The pattern names and descriptions in `skills/design-slop-check/scripts/patterns.json` come from that list. The skill adds one check of its own, #101 (content pushed to the top or bottom of a slide), which is not on the published list.
 
 ## Install
 
-For Claude Code, clone this repo into your skills folder:
+### Claude Code (plugin)
 
-```bash
-git clone https://github.com/SallyRS/design-slop-check.git ~/.claude/skills/design-slop-check
+```
+/plugin marketplace add SallyRS/design-slop-check
+/plugin install design-slop-check@design-slop-check
 ```
 
-For Codex, clone it into `~/.agents/skills/design-slop-check` instead.
+On Claude Code 2.1.275 or later, one line also works: `/plugin install design-slop-check --marketplace SallyRS/design-slop-check`.
 
-You need:
+### Codex (plugin)
+
+```bash
+codex plugin marketplace add SallyRS/design-slop-check
+codex plugin add design-slop-check@design-slop-check
+```
+
+I copied these two commands from other Codex plugins' install instructions. I have not run them on this repo. If they don't work, use the manual install below.
+
+### Manual install
+
+Clone the repo, then link or copy the `skills/design-slop-check` folder into your skills folder:
+
+```bash
+git clone https://github.com/SallyRS/design-slop-check.git
+ln -s "$PWD/design-slop-check/skills/design-slop-check" ~/.claude/skills/design-slop-check
+```
+
+For Codex, link it into `~/.agents/skills/design-slop-check` instead. Copying the folder works too.
+
+### Cowork
+
+Download `design-slop-check-cowork.zip` from the latest GitHub release and upload it to Cowork as a skill.
+
+### What you need
 
 - macOS or Linux. The script looks for Chrome in the usual macOS and Linux places and uses `/usr/bin/which`, so it does not run on Windows.
 - Node 22 or newer.
-- Chrome or Chromium. If the script can't find it, set `CHROME_PATH`.
+- Chrome or Chromium that the script can start. If it can't find Chrome, set `CHROME_PATH`. Without Chrome, the layout checks don't run, and the report lists them as not checked.
 - Optional: the [Impeccable](https://impeccable.style) plugin. When the script finds Impeccable's detector, it runs it and maps the results to the pattern numbers. It looks in this order: the `IMPECCABLE_BIN` environment variable, the Claude Code plugin cache, `~/.impeccable/bin/impeccable`, then your PATH. Codex users will usually need to set `IMPECCABLE_BIN`. Without Impeccable, the script runs the checks it can and says which patterns it did not check.
 
 There is nothing to `npm install`.
@@ -33,11 +58,11 @@ There is nothing to `npm install`.
 
 Ask your agent something like "Run the design slop check on `index.html`", "slop check this deck" or "does this page look AI-generated?". The skill runs the script, the agent then looks at the screenshots to judge the patterns a script can't decide, and you get the path to `report.md`.
 
-You can also run the script yourself. Without `--out` it writes to `./design-slop-check-report`. Run it from the folder where you cloned the skill (`~/.claude/skills/design-slop-check` for Claude Code, `~/.agents/skills/design-slop-check` for Codex):
+You can also run the script yourself. Without `--out` it writes to `./design-slop-check-report`. Run it from the folder where you cloned this repo:
 
 ```bash
-cd <the folder where you cloned it>
-node scripts/check.mjs <file|folder|url> --out <report-dir>
+cd design-slop-check
+node skills/design-slop-check/scripts/check.mjs <file|folder|url> --out <report-dir>
 ```
 
 It writes `report.md` (the fix list) and `report.json` (the same list for another agent to read), plus screenshots and files for the review step.
@@ -53,8 +78,8 @@ Options:
 Try it on the example pages in this repo:
 
 ```bash
-node scripts/check.mjs docs/examples/before.html --out /tmp/before
-node scripts/check.mjs docs/examples/after.html --out /tmp/after
+node skills/design-slop-check/scripts/check.mjs docs/examples/before.html --out /tmp/before
+node skills/design-slop-check/scripts/check.mjs docs/examples/after.html --out /tmp/after
 ```
 
 ## Example of what it catches
