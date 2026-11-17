@@ -8,7 +8,7 @@ People who build pages or slide decks with AI agents and want the result to not 
 
 ## The list it is based on
 
-The skill checks 88 patterns from [Sally Slater's AI slop design list](https://share.innovaitionpartners.com/content/ai-slop-design/), published by InnovAItion Partners. The pattern names and descriptions in `scripts/patterns.json` come from that list. The skill adds one check of its own, #101 (content pushed to the top or bottom of a slide), which is not on the published list.
+The skill checks 88 patterns from [Sally Slater's AI slop design list](https://share.innovaitionpartners.com/content/ai-slop-design/). The pattern names and descriptions in `scripts/patterns.json` come from that list. The skill adds one check of its own, #101 (content pushed to the top or bottom of a slide), which is not on the published list.
 
 ## Install
 
