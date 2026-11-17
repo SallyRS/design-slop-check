@@ -49,6 +49,10 @@ ln -s "$PWD/design-slop-check/skills/design-slop-check" ~/.agents/skills/design-
 
 Copying the folder works too.
 
+### Other agents (Agent Plugins)
+
+The repo is also an [Agent Plugins](https://agent-plugins.org/) package: a root `plugin.json` plus the skill in `skills/design-slop-check/`. Clients that load Agent Plugins, such as VS Code, Cursor, GitHub Copilot and Kiro, can install it from this repo. Follow your client's setup steps on the [compatible clients](https://agent-plugins.org/compatible-clients) page.
+
 ### Cowork
 
 Download `design-slop-check-cowork.zip` from the latest GitHub release and upload it to Cowork as a skill.
