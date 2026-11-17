@@ -430,9 +430,11 @@ function dedupe(findings) {
   return out;
 }
 
+const shq = (p) => "'" + String(p).replace(/'/g, "'\\''") + "'";
+
 function judgementPack(report, pages, outDir) {
   const lines = [];
-  lines.push('# Judgement pack', '', 'Read references/judgement-guide.md, then look at each screenshot and the facts below.',
+  lines.push('# Judgement pack', '', `Read ${join(HERE, '..', 'references', 'judgement-guide.md')}, then look at each screenshot and the facts below.`,
     'Write your calls to `judgement.json` in this folder and run the merge command at the bottom.', '');
   const review = report.findings.filter((f) => f.confidence === 'review');
   if (review.length) {
@@ -473,7 +475,7 @@ function judgementPack(report, pages, outDir) {
       lines.push('');
     }
   }
-  lines.push('## Merge', '', '```', `node ${join(HERE, 'check.mjs')} --merge ${join(outDir, 'judgement.json')} --report ${join(outDir, 'report.json')}`, '```', '');
+  lines.push('## Merge', '', '```', `node ${shq(join(HERE, 'check.mjs'))} --merge ${shq(join(outDir, 'judgement.json'))} --report ${shq(join(outDir, 'report.json'))}`, '```', '');
   writeFileSync(join(outDir, 'judgement-pack.md'), lines.join('\n'));
   const tpl = join(outDir, 'judgement.json');
   if (!existsSync(tpl)) writeFileSync(tpl, JSON.stringify({ add: [], confirm: [], dismiss: [], judged: [], still: [] }, null, 2) + '\n');

@@ -7,14 +7,14 @@ This repo's code is MIT (see `LICENSE`). The material below comes from other peo
 - Author: Damir Sokolovsky ([@heydamir](https://github.com/heydamir))
 - Source: https://github.com/heydamir/unslop
 - License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-- What it covers here: some of the pattern descriptions in `scripts/patterns.json` are adapted from unslop. They were changed from the original wording. That adapted text stays under CC BY 4.0.
+- What it covers here: some of the pattern descriptions in `skills/design-slop-check/scripts/patterns.json` are adapted from unslop. They were changed from the original wording. That adapted text stays under CC BY 4.0.
 
 ## taste-skill
 
 - Author: Leonxlnx
 - Source: https://github.com/Leonxlnx/taste-skill (version 2.5.1)
 - License: MIT
-- What it covers here: some patterns in `scripts/patterns.json` come from the taste-skill design skill.
+- What it covers here: some patterns in `skills/design-slop-check/scripts/patterns.json` come from the taste-skill design skill.
 
 ```
 MIT License

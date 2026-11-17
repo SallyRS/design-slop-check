@@ -36,10 +36,18 @@ Clone the repo, then link or copy the `skills/design-slop-check` folder into you
 
 ```bash
 git clone https://github.com/SallyRS/design-slop-check.git
+mkdir -p ~/.claude/skills
 ln -s "$PWD/design-slop-check/skills/design-slop-check" ~/.claude/skills/design-slop-check
 ```
 
-For Codex, link it into `~/.agents/skills/design-slop-check` instead. Copying the folder works too.
+For Codex, use the Codex skills folder instead:
+
+```bash
+mkdir -p ~/.agents/skills
+ln -s "$PWD/design-slop-check/skills/design-slop-check" ~/.agents/skills/design-slop-check
+```
+
+Copying the folder works too.
 
 ### Cowork
 
@@ -47,7 +55,7 @@ Download `design-slop-check-cowork.zip` from the latest GitHub release and uploa
 
 ### What you need
 
-- macOS or Linux. The script looks for Chrome in the usual macOS and Linux places and uses `/usr/bin/which`, so it does not run on Windows.
+- macOS or Linux. Tested on both. Windows is untested: the script only looks for Chrome in the usual macOS and Linux places, so on Windows you would have to set `CHROME_PATH`.
 - Node 22 or newer.
 - Chrome or Chromium that the script can start. If it can't find Chrome, set `CHROME_PATH`. Without Chrome, the layout checks don't run, and the report lists them as not checked.
 - Optional: the [Impeccable](https://impeccable.style) plugin. When the script finds Impeccable's detector, it runs it and maps the results to the pattern numbers. It looks in this order: the `IMPECCABLE_BIN` environment variable, the Claude Code plugin cache, `~/.impeccable/bin/impeccable`, then your PATH. Codex users will usually need to set `IMPECCABLE_BIN`. Without Impeccable, the script runs the checks it can and says which patterns it did not check.
