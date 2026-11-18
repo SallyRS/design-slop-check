@@ -43,7 +43,7 @@ This step needs a model that can read images (Sonnet or Opus class). A smaller m
 
 1. **Confirm or dismiss** each script finding marked "confirm first" (`confidence: review`). These are real measurements that need a human-level call, for example whether an accent color really covers everything or whether four similar slides are one template.
 2. **Judge** the patterns listed under "Patterns to judge" in the pack.
-3. **Sanity-check the rest.** Every other finding is a measurement and is usually right, but impeccable reads static CSS and can misjudge what's behind an element (for example, calling a faint shadow on a white slide a "glow" because the page behind the slides is dark). When a screenshot plainly contradicts a finding, dismiss it with the reason. Don't re-litigate findings the screenshot agrees with.
+3. **Sanity-check the rest.** Every other finding is a measurement and is usually right, but impeccable reads static CSS and can misjudge what's behind an element (for example, calling a faint shadow on a white slide a "glow" because the page behind the slides is dark). The guide lists the automatic findings that are often wrong; check those first. When a screenshot plainly contradicts a finding, dismiss it with the reason. Don't re-litigate findings the screenshot agrees with.
 
 Write what you decide to `judgement.json`:
 

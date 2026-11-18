@@ -1,6 +1,6 @@
 {
   "name": "design-slop-check",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Checks an HTML page or HTML slide deck against the AI slop design list and writes one fix list for another agent to work through.",
   "author": {
     "name": "Sally Slater",

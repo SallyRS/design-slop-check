@@ -8,7 +8,7 @@ The bar for every call: would the page's designer, shown your evidence, agree th
 
 **#3 Default hero** (web and slides). Counts: the first screen is a centered headline, one line of subtext, a filled button plus an outline button, then a gray logo row, with nothing only this product could show. Doesn't count: a centered headline paired with a real product screenshot, a specific number with a source, or a first screen built around the product. Look at: the first-screen screenshot, `h1`, the first section's buttons.
 
-**#9 Stock page order** (web). Counts: the sections run hero, logo row, three features, stats, three pricing tiers, call to action, four-column footer (most of that order, with little else). Doesn't count: a page that has some of these sections in an order its content needs. Look at: "Sections in order" in the pack.
+**#9 Stock page order** (web). Counts: the sections run hero, logo row, three features, stats, three pricing tiers, call to action, four-column footer (at least five of those sections in that order, with little else). Doesn't count: a page that has some of these sections because its content needs them (a pricing page has pricing; a product page has a hero), or one where the order is set by the content, such as steps, a timeline or a legal sequence. Look at: "Sections in order" in the pack.
 
 **#13 Unneeded modal** (web). Counts: a dialog that opens on load or blocks the page for a small reversible choice (newsletter pop-up on arrival, "change density?" confirm). Doesn't count: dialogs for destructive actions, sign-in, or a form the person opened themselves. Look at: "Modals / dialogs"; "open on load" matters most.
 
@@ -16,19 +16,19 @@ The bar for every call: would the page's designer, shown your evidence, agree th
 
 **#42 Look picked by category** (web). Counts: the look is the stock one for the product's category and nothing about it comes from this brand: wellness on cream and serif, developer tools on black and neon, finance in navy and gold. Needs you to know the category from the copy. Doesn't count: a brand that uses those colors as its own established identity (say so if the person tells you). Use sparingly; it overlaps #35 and #36, which the scripts check.
 
-**#62 Glossy 3D hero orb / Generic 3D imagery** (web and slides). Counts: a glowing glass sphere, chrome blob, abstract 3D shape or floating render standing where the product or a real photo should be. Look at: the images list and screenshots.
+**#62 Glossy 3D hero orb / Generic 3D imagery** (web and slides). Counts: a glowing glass sphere, chrome blob, abstract 3D shape or floating render standing where the product or a real photo should be. Doesn't count: a render of the product itself (a device or a real 3D model of the thing sold), a small decorative shape that isn't standing in for the hero image, or an abstract graphic on a page whose brand is abstract art. Look at: the images list and screenshots, and whether anything product-specific appears near the shape.
 
-**#63 AI clip-art** (web and slides). Counts: glowing brains, circuit-board lines, robots, network-of-dots globes, standing for "AI". Look at: images and screenshots.
+**#63 AI clip-art** (web and slides). Counts: glowing brains, circuit-board lines, robots, network-of-dots globes, standing for "AI". Doesn't count: a diagram or screenshot of what the AI actually produces, an icon from a plain, consistent icon set, or a real system diagram with real labels. Test: would the picture still make sense if the word "AI" were removed? Clip-art would not. Look at: images and screenshots.
 
 **#64 Text baked into an image** (web and slides). Counts: a headline, logo, fake button or label drawn inside a picture instead of written as live text. Open each image close-up from the pack; compare with the page copy (text in the image won't be in the copy).
 
 **#69 Generic product mockup** (web). Counts: a made-up dashboard of gray boxes, a generic bar chart, a chat bubble, with nothing from the real product. Doesn't count: a real screenshot of the product, even if simple.
 
-**#75 Gradient sparkle logo** (web and slides). Counts: a purple-to-blue tile with a sparkle or star mark, often with a gradient wordmark. Look at: "Logos" and the top-left of the first screenshot.
+**#75 Gradient sparkle logo** (web and slides). Counts: a purple-to-blue tile with a sparkle or star mark, often with a gradient wordmark. Doesn't count: a sparkle that is part of the company's real, established mark, or a plain sparkle used once as an ordinary icon rather than as the brand mark. Look at: "Logos" and the top-left of the first screenshot.
 
-**#80 Approximated logo** (web and slides). Counts: a logo that looks redrawn from memory: wrong shape, misspelled name, off proportions. Only call it when you know the real mark or the page shows the real one elsewhere to compare.
+**#80 Approximated logo** (web and slides). Counts: a logo that looks redrawn from memory: wrong shape, misspelled name, off proportions. Only call it when you know the real mark or the page shows the real one elsewhere to compare. Doesn't count: a logo you can't compare to a real one (leave it out and mention it in your reply instead of guessing), a real logo reproduced from the company's file, or a stylised wordmark the company really uses.
 
-**#81 Garbled text in images** (slides). Counts: misspelled, doubled or letter-like shapes inside an image. Open the slide screenshot for every image with text-like marks and read it at full size.
+**#81 Garbled text in images** (slides). Counts: misspelled, doubled or letter-like shapes inside an image. Open the slide screenshot for every image with text-like marks and read it at full size. Doesn't count: text that is small but spelled right, real signage in another language in a photo, or decorative lettering not meant to be read. If you can read every word and it is spelled right, it doesn't count.
 
 **#86 Groups of three by habit** (web and slides). Counts: a group of three where one item is vague padding ("Drive innovation across the business", "And much more") next to two real points. Doesn't count: three real, distinct items. Look at: "Groups of exactly three" and judge the weakest item on its own.
 
@@ -56,6 +56,16 @@ The script finds these, but whether they are a problem depends on what the page 
 - **#85 Dashboard stat tiles**: confirm when a row of equal tiles gives every number the same weight on a page that isn't a dashboard; dismiss when the page is a real dashboard or the tiles are a sourced comparison.
 - **#88 Bullets left, image right**: confirm when most slides in the deck use this layout whatever the content; dismiss when it appears on a few slides where a picture beside bullets is what the content needs.
 - **#101 Content pushed to the top or bottom** (an extra check, not on the published list): open the slide screenshot named in the finding. Confirm when the content is shoved up under the heading (or down toward the footer) and one side is a big empty band while the other has almost no space, or when most slides in the deck lean the same way. Dismiss when the content is placed on purpose: it is anchored to a bottom strip or a footer element, it is a chart or table that reads best starting right under its title, or the empty side is small next to the content. A single odd slide is worth confirming only when the rest of the deck sits centred between the heading and the footer.
+
+## Automatic findings that are often wrong
+
+These come from impeccable's detector or the scripts and are usually right, but each reads CSS, not the screen. Look at the screenshot before you keep them. Dismiss only when the screenshot plainly contradicts the finding, and say what you saw.
+
+- **#47 Shadows on everything, #48 Glow and halo, #50 Giant shadows**: the finding reads a shadow value, not how it looks. Dismiss when the shadow is faint on the screenshot (a light gray lift on a white or light slide), or when the "glow" is really a shadow on a pale surface that sits over a dark page behind it. Keep when most cards carry the same wide soft shadow, or a colored halo is clearly visible behind the headline or buttons.
+- **#49 Hard offset shadow**: dismiss when the block shadow belongs to a page that is deliberately that style all the way through (borders, type and colors match). Keep when it appears on one component of an otherwise conventional page.
+- **#29 Tiny, faint copy**: the finding measures a font size and a contrast ratio. Dismiss when the small text is a legal line, a caption or a footnote that is still readable on the screenshot, or when the "low contrast" text sits on a background the measurement couldn't see (an image or gradient that is actually light behind it). Keep when body copy or labels people need are small and faint enough that you have to look twice.
+- **#10 Monotonous spacing**: dismiss when the screenshot shows things grouped, with tighter gaps inside a block and larger gaps between blocks, and the measurement only found one repeated value in the CSS. Keep when a heading, its text and the next section all sit the same distance apart and nothing reads as grouped.
+- **#45 Everything highlighted**: see its confirm-first entry; the count often comes from one component (a chart's own colors, a badge set).
 
 ## Spacing under the heading
 
