@@ -98,7 +98,7 @@ function findImpeccable() {
   }
   cands.push(join(homedir(), '.impeccable/bin/impeccable'));
   for (const c of cands.filter(Boolean)) if (existsSync(c)) return c;
-  try { return execFileSync('/usr/bin/which', ['impeccable'], { encoding: 'utf8' }).trim() || null; } catch { return null; }
+  try { return execFileSync(process.platform === 'win32' ? 'where' : 'which', ['impeccable'], { encoding: 'utf8' }).split(/\r?\n/)[0].trim() || null; } catch { return null; }
 }
 
 function runImpeccable(bin, pages) {
@@ -514,6 +514,7 @@ function compareTo(report, oldPath) {
 }
 
 async function main() {
+  if (Number(process.versions.node.split('.')[0]) < 22) throw new Error(`Node 22 or newer is required (this is ${process.versions.node}).`);
   const opts = parseArgs(process.argv.slice(2));
   if (opts.help || (!opts.targets.length && !opts.merge)) {
     console.log(readFileSync(fileURLToPath(import.meta.url), 'utf8').split('\n').slice(1, 19).map((l) => l.replace(/^\/\/ ?/, '')).join('\n'));

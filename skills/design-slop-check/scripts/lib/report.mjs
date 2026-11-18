@@ -134,6 +134,8 @@ export function mergeJudgement(report, j, BY_N, previous = null) {
   }
   const judged = new Set([...(report.judged || []), ...judgedNums, ...accepted]);
   report.judged = [...judged].sort((a, b) => a - b);
+  const noReason = judgedNums.filter((n) => !report.judgedReasons[n] && !accepted.includes(n));
+  if (noReason.length) console.error(`Judged with no reason (add one line for each pattern you cleared, so the report can show what was looked at): ${[...new Set(noReason)].map((n) => '#' + n).join(', ')}`);
   const open = report.findings.filter((f) => f.confidence === 'review' && f.status !== 'dismissed' && !f.confirmed).map((f) => f.id);
   if (open.length) console.error(`Still marked "confirm first" (confirm or dismiss them): ${open.join(', ')}`);
   report.ran.judgement = true;

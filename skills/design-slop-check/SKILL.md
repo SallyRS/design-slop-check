@@ -1,16 +1,16 @@
 ---
 name: design-slop-check
-description: Checks an HTML web page or an HTML slide deck against the AI slop design list (88 patterns, from eyebrow labels and purple-to-blue gradients to takeaway banners and bullets-left-image-right slides) and writes one fix list, with the pattern number and name, location, evidence and a concrete fix for each finding, ready for another agent to work through. Rechecks after fixes. Use whenever someone asks to check a page, landing page, site, mockup or HTML deck for AI slop, "does this look AI-generated", "slop check this design", "run the design slop check", "audit this page against the slop list", "what makes this look generic", or wants a fix list for an HTML page or deck before it ships, even if they don't say "slop". Flags only; it does not redesign. Not for PowerPoint, Google Slides, PDFs or images alone, and not for checking writing (use the writing guards for copy).
+description: Check an HTML web page or an HTML slide deck against the AI slop design list (88 patterns, from eyebrow labels and purple-to-blue gradients to takeaway banners and bullets-left-image-right slides) and write one fix list, with the pattern number and name, location, evidence and a concrete fix for each finding, ready for another agent to work through. Recheck after fixes. Use whenever someone asks to check a page, landing page, site, mockup or HTML deck for AI slop, "does this look AI-generated", "slop check this design", "run the design slop check", "audit this page against the slop list", "what makes this look generic", or wants a fix list for an HTML page or deck before it ships, even if they don't say "slop". Flags only; it does not redesign. Not for PowerPoint, Google Slides, PDFs or images alone, and not for checking writing (use a writing checker for copy).
 ---
 
 # Design Slop Check
 
 Find every pattern from the AI slop design list (linked in the README) on an HTML page or HTML deck, and hand back one fix list. You flag and explain; you don't redesign the page. The fix list is written for another agent to work through, so every item needs a place it can find and a fix it can act on.
 
-The list has 88 patterns, plus one extra check of ours (#101, content pushed to the top or bottom of a slide; it is not on the published list and always goes to "confirm first"). Each one is checked one of three ways:
+The list has 88 patterns, plus one extra check, #101 (content pushed to the top or bottom of a slide; it is not on the published list and always goes to "confirm first"). Each one is checked one of three ways:
 
 - **Scripts** (`scripts/check.mjs`): reads the HTML and CSS and renders the page in headless Chrome to read computed styles and layout.
-- **impeccable's detector**, if the impeccable plugin is installed. The script calls it and maps its rule ids to the pattern numbers.
+- **impeccable's detector**, if the impeccable plugin (https://impeccable.style) is installed. If it is installed in an unusual place, set `IMPECCABLE_BIN` to its executable. The script calls it and maps its rule ids to the pattern numbers.
 - **Your judgement**, for the 13 patterns a script can't decide (default hero, stock page order, mixed number formats, generic 3D imagery, AI clip-art, and so on), using the screenshots and page facts the script saves.
 
 `scripts/patterns.json` holds all 88 patterns plus the extra #101 (marked `"extra": true`): number, the pattern name, the slides name where it differs, scope (web, slides or both), how it is checked, the one-line description and the default fix.
@@ -39,7 +39,7 @@ If Chrome or impeccable is missing, the script still runs what it can and the re
 
 ## Step 2: the judgement review
 
-Read `references/judgement-guide.md`, then `judgement-pack.md`, then look at every screenshot with the Read tool (all slides of a deck, not a sample). The full-page screenshot is shrunk when you view it, so read details (text inside images, small labels, logos) from the close-ups the pack lists. Two jobs:
+This step needs a model that can read images (Sonnet or Opus class). A smaller model may run Step 1 and hand the report to a stronger one. Read `references/judgement-guide.md`, then `judgement-pack.md`, then look at every screenshot with the Read tool (all slides of a deck, not a sample). The full-page screenshot is shrunk when you view it, so read details (text inside images, small labels, logos) from the close-ups the pack lists. Three jobs:
 
 1. **Confirm or dismiss** each script finding marked "confirm first" (`confidence: review`). These are real measurements that need a human-level call, for example whether an accent color really covers everything or whether four similar slides are one template.
 2. **Judge** the patterns listed under "Patterns to judge" in the pack.

@@ -12,6 +12,10 @@ const CANDIDATES = [
   '/usr/bin/google-chrome',
   '/usr/bin/chromium',
   '/usr/bin/chromium-browser',
+  '/usr/bin/google-chrome-stable',
+  '/snap/bin/chromium',
+  'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
 ].filter(Boolean);
 
 export function findChrome() {
