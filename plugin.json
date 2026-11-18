@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "design-slop-check",
-  "version": "1.0.0",
-  "description": "Checks an HTML page or HTML slide deck against Sally Slater's AI slop design list and writes one fix list for another agent to work through.",
+  "version": "1.0.1",
+  "description": "Checks an HTML page or HTML slide deck against the AI slop design list and writes one fix list for another agent to work through.",
   "author": { "name": "Sally Slater", "url": "https://github.com/SallyRS" },
   "homepage": "https://github.com/SallyRS/design-slop-check",
   "repository": "https://github.com/SallyRS/design-slop-check",

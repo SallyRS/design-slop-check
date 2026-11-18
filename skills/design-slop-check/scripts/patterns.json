@@ -1313,7 +1313,7 @@
   "impeccable_rules": [],
   "extra": true,
   "needs_confirming": true,
-  "description": "On a content slide, the content is shoved up under the heading (or down toward the footer) instead of sitting in the space between them. The normal space between the heading and the content is fine; the problem is a big empty band on one side and almost none on the other, or a whole deck leaning the same way. Extra check, not on Sally's published list.",
+  "description": "On a content slide, the content is shoved up under the heading (or down toward the footer) instead of sitting in the space between them. The normal space between the heading and the content is fine; the problem is a big empty band on one side and almost none on the other, or a whole deck leaning the same way. Extra check, not on the published list.",
   "fix": "Center the content block in the space between the heading and the footer, or spread it to fill that space; don't pin it under the title."
  }
 ]

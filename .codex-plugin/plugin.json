@@ -1,7 +1,7 @@
 {
   "name": "design-slop-check",
-  "version": "1.0.0",
-  "description": "Checks an HTML page or HTML slide deck against Sally Slater's AI slop design list and writes one fix list for another agent to work through.",
+  "version": "1.0.1",
+  "description": "Checks an HTML page or HTML slide deck against the AI slop design list and writes one fix list for another agent to work through.",
   "author": {
     "name": "Sally Slater",
     "url": "https://github.com/SallyRS"
@@ -14,7 +14,7 @@
   "interface": {
     "displayName": "Design Slop Check",
     "shortDescription": "Check an HTML page or deck for AI slop design and get one fix list.",
-    "longDescription": "Checks an HTML page or HTML slide deck against Sally Slater's AI slop design list of 88 patterns. Runs scripted checks in headless Chrome, has the agent judge the rest from screenshots, and writes one fix list another agent can work through. It flags problems and changes nothing on the page.",
+    "longDescription": "Checks an HTML page or HTML slide deck against the AI slop design list of 88 patterns. Runs scripted checks in headless Chrome, has the agent judge the rest from screenshots, and writes one fix list another agent can work through. It flags problems and changes nothing on the page.",
     "developerName": "Sally Slater",
     "category": "Design",
     "capabilities": ["Read", "Write", "Execute"],

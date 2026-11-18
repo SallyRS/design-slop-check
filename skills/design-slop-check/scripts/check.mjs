@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Design Slop Check: scans HTML pages and HTML slide decks for the patterns on
-// Sally's AI slop design list and writes one fix list (report.md + report.json).
+// the AI slop design list and writes one fix list (report.md + report.json).
 //
 //   node check.mjs <file|folder|url>... [options]
 //   node check.mjs --merge judgement.json --report <out>/report.json
@@ -28,7 +28,7 @@ const PATTERNS = JSON.parse(readFileSync(join(HERE, 'patterns.json'), 'utf8'));
 const BY_N = new Map(PATTERNS.map((p) => [p.n, p]));
 const COLLECTOR = readFileSync(join(HERE, 'lib', 'collector.js'), 'utf8');
 
-// impeccable rule id -> Sally's pattern number. Rules not listed here are
+// impeccable rule id -> pattern number. Rules not listed here are
 // general quality checks that are not on the list; they are counted, not reported.
 const IMPECCABLE_MAP = {
   'kicker-above-heading': 1, 'hero-eyebrow-chip': 1, 'icon-tile-stack': 5, 'nested-cards': 6,
@@ -235,7 +235,7 @@ function crossChecks(page) {
       const media = u.filter((s) => s.signature.hasMedia).map((s) => s.slide);
       if (media.length / u.length >= 0.8) add(18, `${media.length} of ${u.length} slides carry a large image`, { key: 'media', conf: 'review', slides: media });
     }
-    // #101 content pushed to the top or bottom (extra check, not on Sally's published list).
+    // #101 content pushed to the top or bottom (extra check, not on the published list).
     // Each content slide reports the empty space under its header block (topGap) and above its
     // footer or bottom edge (bottomGap); share = topGap / (topGap + bottomGap), 0.5 when centred.
     // A slide counts as strongly lopsided at share 0.25 / 0.75, with size floors (the bigger gap at

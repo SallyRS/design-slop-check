@@ -1,6 +1,6 @@
 # Judgement guide
 
-How to decide the patterns a script can't settle. For each: what counts, what doesn't, and where to look in the judgement pack. Sally's one-line description is in `scripts/patterns.json` if you need her exact words.
+How to decide the patterns a script can't settle. For each: what counts, what doesn't, and where to look in the judgement pack. The one-line description of each pattern is in `scripts/patterns.json` if you need the exact wording.
 
 The bar for every call: would the page's designer, shown your evidence, agree the pattern is there? If you'd need to argue, leave it out and mention it in your reply instead.
 
@@ -42,7 +42,7 @@ These are measured, but the measurement can't tell intent. Confirm (add the id t
 - **#77 Repeated templates**: confirm when the slides or sections really share one layout by habit; dismiss when the repeat is a deliberate series (for example one slide per region with the same comparison).
 - **#78 Perfect sameness**: confirm when nothing on the slide is bigger, bolder or placed to lead; dismiss when one item clearly leads.
 - **#79 Off-brand colors**: confirm when the image's main color is visibly near the brand color but off; dismiss photos whose colors aren't trying to be the brand's.
-- **#101 Content pushed to the top or bottom** (an extra check, not on Sally's list): open the slide screenshot named in the finding. Confirm when the content is shoved up under the heading (or down toward the footer) and one side is a big empty band while the other has almost no space, or when most slides in the deck lean the same way. Dismiss when the content is placed on purpose: it is anchored to a bottom strip or a footer element, it is a chart or table that reads best starting right under its title, or the empty side is small next to the content. A single odd slide is worth confirming only when the rest of the deck sits centred between the heading and the footer.
+- **#101 Content pushed to the top or bottom** (an extra check, not on the published list): open the slide screenshot named in the finding. Confirm when the content is shoved up under the heading (or down toward the footer) and one side is a big empty band while the other has almost no space, or when most slides in the deck lean the same way. Dismiss when the content is placed on purpose: it is anchored to a bottom strip or a footer element, it is a chart or table that reads best starting right under its title, or the empty side is small next to the content. A single odd slide is worth confirming only when the rest of the deck sits centred between the heading and the footer.
 
 ## Spacing under the heading
 
