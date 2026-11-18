@@ -16,7 +16,7 @@
 //   --no-impeccable      skip impeccable's detector
 //   --no-screenshots     skip screenshots (the judgement step then has only text)
 import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync, readdirSync } from 'node:fs';
-import { resolve, join, basename, dirname, extname, relative } from 'node:path';
+import { resolve, join, basename, dirname, extname, relative, sep, isAbsolute } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { homedir } from 'node:os';
@@ -74,18 +74,23 @@ function expandTargets(targets) {
     const p = resolve(t);
     if (!existsSync(p)) throw new Error(`Not found: ${t}`);
     if (statSync(p).isDirectory()) {
+      const base = p;
       const walk = (d) => {
         for (const f of readdirSync(d).sort()) {
           if (f.startsWith('.') || f === 'node_modules') continue;
           const fp = join(d, f);
           if (statSync(fp).isDirectory()) walk(fp);
-          else if (/\.html?$/i.test(f)) out.push({ url: pathToFileURL(fp).href, file: fp, label: labelFor(fp) });
+          else if (/\.html?$/i.test(f)) out.push({ url: pathToFileURL(fp).href, file: fp, label: labelFor(fp, base), root: base });
         }
       };
       walk(p);
-    } else out.push({ url: pathToFileURL(p).href, file: p, label: labelFor(p) });
+    } else out.push({ url: pathToFileURL(p).href, file: p, label: labelFor(p, dirname(p)), root: dirname(p) });
   }
   if (!out.length) throw new Error('No HTML files found in the targets.');
+  // Two targets can give the same label (a/index.html in two folders): add the folder name in front.
+  const seen = new Map();
+  for (const o of out) seen.set(o.label, (seen.get(o.label) || 0) + 1);
+  for (const o of out) if (o.file && seen.get(o.label) > 1) o.label = basename(o.root) + '/' + o.label;
   return out;
 }
 
@@ -135,8 +140,10 @@ function lineFor(src, hit) {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-// Full paths, so a fixing agent started anywhere can open the file.
-function labelFor(fp) { return resolve(fp); }
+// Page labels are relative to what was checked (the folder, or the file's own name), so a shared report shows no home folder.
+function labelFor(fp, root) { return relative(root, fp).split(sep).join('/'); }
+// Show a home-folder path as ~/..., so reports and the judgement pack don't print the user's name.
+const tidy = (p) => { const h = homedir(); return p === h ? '~' : p.startsWith(h + sep) ? '~/' + p.slice(h.length + 1).split(sep).join('/') : p; };
 import { createHash } from 'node:crypto';
 const shortHash = (s) => createHash('sha1').update(s).digest('hex').slice(0, 8);
 const slug = (s) => shortHash(s) + '-' + (/^[a-z]+:\/\//i.test(s) ? s : s.split('/').slice(-2).join('-')).replace(/^file:\/\//, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(-50);
@@ -431,10 +438,13 @@ function dedupe(findings) {
 }
 
 const shq = (p) => "'" + String(p).replace(/'/g, "'\\''") + "'";
+// A path under the home folder is written ~/... (the ~ stays outside the quotes so the shell expands it).
+const shqHome = (p) => { const t = tidy(p); return t.startsWith('~/') ? '~/' + shq(t.slice(2)) : shq(t); };
 
 function judgementPack(report, pages, outDir) {
+  const rel = (p) => relative(outDir, p).split(sep).join('/');
   const lines = [];
-  lines.push('# Judgement pack', '', `Read ${join(HERE, '..', 'references', 'judgement-guide.md')}, then look at each screenshot and the facts below.`,
+  lines.push('# Judgement pack', '', `Read the skill's references/judgement-guide.md, then look at each screenshot and the facts below. File paths in this pack are relative to this folder.`,
     'Write your calls to `judgement.json` in this folder and run the merge command at the bottom.', '');
   const review = report.findings.filter((f) => f.confidence === 'review');
   if (review.length) {
@@ -449,9 +459,9 @@ function judgementPack(report, pages, outDir) {
     lines.push(`## ${page.label} (${page.kind === 'deck' ? page.units.length + ' slides' : 'web page'})`, '');
     for (const u of page.units) {
       if (u.slide) lines.push(`### Slide ${u.slide}`);
-      if (u.screenshot) lines.push(`- Screenshot: ${u.screenshot}`);
-      if (u.screenshotFull) lines.push(`- Full page (shrinks when viewed; use the close-ups to read detail): ${u.screenshotFull}${u.truncated ? ` (cut at 6000px of ${u.size.docH}px: judge the rest from the section close-ups)` : ''}`);
-      if (u.crops && u.crops.length) { lines.push('- Close-ups at full size:'); for (const c of u.crops) lines.push(`  - ${c.kind} \`${c.sel}\`: ${c.path}${c.cut ? ' (first 1800px)' : ''}`); }
+      if (u.screenshot) lines.push(`- Screenshot: ${rel(u.screenshot)}`);
+      if (u.screenshotFull) lines.push(`- Full page (shrinks when viewed; use the close-ups to read detail): ${rel(u.screenshotFull)}${u.truncated ? ` (cut at 6000px of ${u.size.docH}px: judge the rest from the section close-ups)` : ''}`);
+      if (u.crops && u.crops.length) { lines.push('- Close-ups at full size:'); for (const c of u.crops) lines.push(`  - ${c.kind} \`${c.sel}\`: ${rel(c.path)}${c.cut ? ' (first 1800px)' : ''}`); }
       const f = u.facts;
       if (f.h1) lines.push(`- h1: "${f.h1}"`);
       if (!u.slide && f.sections.length) {
@@ -467,31 +477,43 @@ function judgementPack(report, pages, outDir) {
       lines.push(`- Copy${f.copy.length > cap ? ` (first ${cap} characters)` : ''}: ${f.copy.slice(0, cap)}`, '');
     }
   }
-  if (report.comparedTo && existsSync(report.comparedTo)) {
-    const old = JSON.parse(readFileSync(report.comparedTo, 'utf8')).findings.filter((f) => f.check === 'judgement' && f.status !== 'dismissed');
+  const oldPath = report.comparedTo ? resolve(outDir, report.comparedTo) : null;
+  if (oldPath && existsSync(oldPath)) {
+    const old = JSON.parse(readFileSync(oldPath, 'utf8')).findings.filter((f) => f.check === 'judgement' && f.status !== 'dismissed');
     if (old.length) {
       lines.push('## Judgement findings from the last run', '', 'Look at each again. Put the ids still on the page in `still` in judgement.json; ids you leave out count as fixed.', '');
       for (const f of old) lines.push(`- ${f.id}: #${f.pattern} ${f.name}, ${f.location.page}${f.location.slide ? ' slide ' + f.location.slide : ''}: ${f.evidence}`);
       lines.push('');
     }
   }
-  lines.push('## Merge', '', '```', `node ${shq(join(HERE, 'check.mjs'))} --merge ${shq(join(outDir, 'judgement.json'))} --report ${shq(join(outDir, 'report.json'))}`, '```', '');
+  lines.push('## Merge', '', '```', `node ${shqHome(join(HERE, 'check.mjs'))} --merge ${shqHome(join(outDir, 'judgement.json'))} --report ${shqHome(join(outDir, 'report.json'))}`, '```', '');
   writeFileSync(join(outDir, 'judgement-pack.md'), lines.join('\n'));
   const tpl = join(outDir, 'judgement.json');
   if (!existsSync(tpl)) writeFileSync(tpl, JSON.stringify({ add: [], confirm: [], dismiss: [], judged: [], still: [] }, null, 2) + '\n');
 }
 
-function compareTo(report, oldPath) {
+function compareTo(report, oldPath, outDir) {
   const old = JSON.parse(readFileSync(oldPath, 'utf8'));
-  // A recheck may scan a copy at another path: pair the pages up by order when the counts match.
-  const same = old.targets.every((t) => report.targets.some((n) => n.page === t.page));
-  if (!same && old.targets.length === 1 && report.targets.length === 1 && basename(old.targets[0].page) === basename(report.targets[0].page)) {
-    report.notes = [...(report.notes || []).filter((n) => !n.startsWith('Recheck paired')), `Recheck paired ${old.targets[0].page} (last run) with ${report.targets[0].page} (this run).`];
-    const rename = new Map(old.targets.map((t, i) => [t.page, report.targets[i].page]));
-    for (const f of old.findings) {
-      const was = f.location.page;
-      if (rename.has(was)) { f.location = { ...f.location, page: rename.get(was) }; f.key = f.key.split('|').map((x, i) => (i === 1 && x === was ? rename.get(was) : x)).join('|'); }
-    }
+  // Pair this run's pages with the old run's when the labels differ:
+  // an old report with absolute paths (the label is now relative to what was checked), or a recheck of a copy at another path.
+  const rename = new Map();
+  const newPages = report.targets.map((t) => t.page), oldPages = old.targets.map((t) => t.page);
+  const lost = oldPages.filter((p) => !newPages.includes(p));
+  const taken = new Set();
+  for (const o of lost) {
+    const c = newPages.filter((n) => !oldPages.includes(n) && !taken.has(n) && o.endsWith('/' + n)).sort((x, y) => y.length - x.length);
+    if (c.length && (c.length === 1 || c[0].length > c[1].length)) { rename.set(o, c[0]); taken.add(c[0]); }
+  }
+  const left = lost.filter((o) => !rename.has(o)), fresh = newPages.filter((n) => !oldPages.includes(n) && !taken.has(n));
+  if (left.length === 1 && fresh.length === 1 && old.targets.length === 1 && report.targets.length === 1 && basename(left[0]) === basename(fresh[0])) {
+    report.notes = [...(report.notes || []).filter((n) => !n.startsWith('Recheck paired')), `Recheck paired ${left[0]} (last run) with ${fresh[0]} (this run).`];
+    rename.set(left[0], fresh[0]);
+  } else if (rename.size) {
+    report.notes = [...(report.notes || []).filter((n) => !n.startsWith('Recheck paired')), `Recheck paired ${rename.size} page${rename.size === 1 ? '' : 's'} from the last run by file path (the last report used full paths).`];
+  }
+  if (rename.size) {
+    const ren = (str) => [...rename].sort((x, y) => y[0].length - x[0].length).reduce((acc, [from, to]) => acc.split(from).join(to), str);
+    for (const f of old.findings) { f.location = { ...f.location, page: ren(f.location.page) }; f.key = ren(f.key); }
   }
   const loc = (f) => `${f.pattern}|${f.location.page}|${f.location.slide ?? ''}|${f.location.selector ?? ''}`;
   const oldLive = old.findings.filter((f) => f.status !== 'dismissed');
@@ -510,7 +532,8 @@ function compareTo(report, oldPath) {
   const gone = oldLive.filter((f) => !newKeys.has(f.key) && !newLocs.has(loc(f))).map((f) => ({ id: f.id, pattern: f.pattern, name: f.name, location: f.location, check: f.check, evidence: f.evidence }));
   report.fixed = gone.filter(ranOn);
   report.unverified = gone.filter((f) => !ranOn(f));
-  report.comparedTo = resolve(oldPath);
+  // Stored relative to the report folder, so report.json holds no home path.
+  report.comparedTo = relative(outDir, resolve(oldPath)).split(sep).join('/') || '.';
 }
 
 async function main() {
@@ -524,10 +547,12 @@ async function main() {
     if (!opts.report) throw new Error('--merge needs --report <path to report.json>');
     const { mergeJudgement } = await import('./lib/report.mjs');
     const current = JSON.parse(readFileSync(opts.report, 'utf8'));
-    const previous = current.comparedTo && existsSync(current.comparedTo) ? JSON.parse(readFileSync(current.comparedTo, 'utf8')) : null;
+    const repDir = dirname(resolve(opts.report));
+    const oldAbs = current.comparedTo ? resolve(repDir, current.comparedTo) : null; // old reports stored an absolute path; resolve keeps that working
+    const previous = oldAbs && existsSync(oldAbs) ? JSON.parse(readFileSync(oldAbs, 'utf8')) : null;
     const report = mergeJudgement(current, JSON.parse(readFileSync(opts.merge, 'utf8')), BY_N, previous);
     if (process.exitCode) { console.error('Nothing was merged. Fix the entries above and run the merge again.'); return; }
-    if (report.comparedTo && existsSync(report.comparedTo)) compareTo(report, report.comparedTo);
+    if (oldAbs && existsSync(oldAbs)) compareTo(report, oldAbs, repDir);
     finalize(report, BY_N);
     writeFileSync(opts.report, JSON.stringify(report, null, 2));
     writeFileSync(join(dirname(opts.report), 'report.md'), renderMarkdown(report, BY_N));
@@ -610,7 +635,7 @@ async function main() {
     findings,
     judgementPatterns: PATTERNS.filter((p) => p.checked_by.includes('judgement') && [...kinds].some((k) => inScope(p, k))).map((p) => p.n),
   };
-  if (opts.compare) compareTo(report, opts.compare);
+  if (opts.compare) compareTo(report, opts.compare, outDir);
   finalize(report, BY_N);
   writeFileSync(join(outDir, 'report.json'), JSON.stringify(report, null, 2));
   writeFileSync(join(outDir, 'report.md'), renderMarkdown(report, BY_N));

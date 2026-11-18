@@ -28,7 +28,7 @@ node <skill-dir>/scripts/check.mjs <file|folder|url> --out <report-dir>
 Useful options: `--brand "#1f5f4a,#e8b04b"` turns on the off-brand color check (#79, decks only); `--viewport 1440x900` and `--slide-viewport 1600x900` set the screen size; `--mode web|slides`; `--compare <old report.json>` for a recheck. Needs Node 22+ and Chrome or Chromium (set `CHROME_PATH` if Chrome isn't in the usual place). Nothing to install.
 
 It writes, in `<report-dir>`:
-- `report.md` and `report.json`: the fix list so far
+- `report.md` and `report.json`: the fix list so far (page labels are relative to the folder that was checked)
 - `screenshots/`: for web, the first screen, the full page, and a full-size close-up of each section and each large image; for decks, one image per slide
 - `judgement-pack.md`: the facts you need for Step 2 (sections in order, h1, buttons, every number, groups of three, images, modals, the copy)
 - `judgement.json`: an empty file for your calls
@@ -39,7 +39,7 @@ If Chrome or impeccable is missing, the script still runs what it can and the re
 
 ## Step 2: the judgement review
 
-This step needs a model that can read images (Sonnet or Opus class). A smaller model may run Step 1 and hand the report to a stronger one. Read `references/judgement-guide.md`, then `judgement-pack.md`, then look at every screenshot with the Read tool (all slides of a deck, not a sample). The full-page screenshot is shrunk when you view it, so read details (text inside images, small labels, logos) from the close-ups the pack lists. Three jobs:
+This step needs a model that can read images (Sonnet or Opus class). A smaller model may run Step 1 and hand the report to a stronger one. Read `references/judgement-guide.md`, then `judgement-pack.md`, then look at every screenshot with the Read tool (the pack gives screenshot paths relative to the report folder) (all slides of a deck, not a sample). The full-page screenshot is shrunk when you view it, so read details (text inside images, small labels, logos) from the close-ups the pack lists. Three jobs:
 
 1. **Confirm or dismiss** each script finding marked "confirm first" (`confidence: review`). These are real measurements that need a human-level call, for example whether an accent color really covers everything or whether four similar slides are one template.
 2. **Judge** the patterns listed under "Patterns to judge" in the pack.
@@ -59,7 +59,7 @@ Write what you decide to `judgement.json`:
 }
 ```
 
-- `page` must be the page label exactly as the report shows it. Use `slide` (a number) for decks.
+- `page` must be the page label exactly as the report shows it: the path relative to the folder that was checked, the file name for a single file, or the URL. Use `slide` (a number) for decks.
 - Evidence quotes what is on the page (the headline text, the numbers, the slide). A reader should be able to check it without your screenshot.
 - Put every pattern you looked at in `judged`, including the ones you found clear. Give a one-line reason for the ones you clear (`{"pattern": 9, "reason": "..."}`); the report shows it, so a reader can see what was looked at.
 - A problem that fits no pattern on the list goes in your reply, not in the fix list. A pattern you didn't look at stays "not checked" in the report, which is the honest result.
@@ -81,7 +81,7 @@ If they say the fix list is going to another agent, `report.json` is the structu
 
 ## Recheck after fixes
 
-Run the script again with `--compare <old report.json>` into a new folder, then redo Step 2. The pack lists last run's judgement findings by id: put the ones still on the page in `still` (they are carried over and paired up); the ones you leave out count as fixed. The report leads with fixed, still there and new.
+Run the script again with `--compare <old report.json>` into a new folder, then redo Step 2. The pack lists last run's judgement findings by id: put the ones still on the page in `still` (they are carried over and paired up); the ones you leave out count as fixed. The report leads with fixed, still there and new. A report made before version 1.0.2 labels pages with full paths; `--compare` still pairs those pages with the new relative labels when the path ends with the label.
 
 ## What the scripts can't check
 

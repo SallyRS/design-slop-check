@@ -34,14 +34,27 @@ The bar for every call: would the page's designer, shown your evidence, agree th
 
 ## Script findings marked "confirm first"
 
-These are measured, but the measurement can't tell intent. Confirm (add the id to `confirm`) or dismiss (add it to `dismiss` with a reason).
+The script finds these, but whether they are a problem depends on what the page is for. Confirm (add the id to `confirm`) or dismiss (add it to `dismiss` with a reason).
 
+- **#4 Identical card grid**: confirm when the cards are the page's whole structure and the items aren't equal in importance; dismiss when the items really are a set of equals (a team, a product range, plans) or the grid is one part of a varied page.
+- **#7 Hero-metric row**: confirm when the figures are decoration with no source or context; dismiss when they are real, sourced results the page is about.
+- **#15 Everything boxed**: confirm when headings, paragraphs and contact lines each sit in their own box with no reason; dismiss when the boxes group things that must stand apart (a form, a pricing choice, a dashboard panel).
+- **#17 Button pile and unsourced proof**: confirm when three or more buttons compete under the headline, or stars and "trusted by" counts have no source anywhere on the page; dismiss when the buttons are distinct, needed actions or the source is named nearby (a linked review site, a named customer).
 - **#18 A visual on every section**: confirm when the images are decoration repeated by habit; dismiss when each picture shows something the section needs (a product step, a person quoted).
+- **#19 The cleaned-up template**: confirm when the flat dark gray, Inter and one accent button don't fit what the product is; dismiss when the plain look is the brand's own (a developer tool or terminal product that is meant to look like that).
+- **#22 Mixed styles on one page**: confirm when two buttons or cards that do the same job look different; dismiss when the styles belong to different roles (primary and secondary, a card and a plain panel) or to separate parts of an app.
+- **#26 Monospace as costume**: confirm when marketing copy, labels or headings are set in monospace only to look technical; dismiss when the text is code, a command, an ID, a price table or other data.
+- **#41 Untouched component-library look**: confirm when the values are still the library's stock ones (zinc grays, black primary, 6px corners); dismiss when the tokens exist but have been changed to the brand's colors, radius and fonts.
 - **#45 Everything highlighted**: confirm when the accent shows up on most headings, icons, rules and tags so nothing stands out; dismiss when the accent is limited and the count came from one component (for example a chart's own colors).
+- **#53 Placeholder art and people**: confirm when circles and rectangles stand in for an illustration, or initials stand in for named people on a marketing page; dismiss initials that are a real app's own avatars for real users. A broken or placeholder image is always worth confirming.
+- **#54 Fake status and window chrome**: confirm when a pulsing dot or red-yellow-green window dots sit on something that has no live data or real window behind it; dismiss when the dot shows real status the page reads from somewhere.
 - **#66 Captions and disclaimers under images**: confirm captions that restate or apologize; dismiss real credits or captions that add information.
 - **#77 Repeated templates**: confirm when the slides or sections really share one layout by habit; dismiss when the repeat is a deliberate series (for example one slide per region with the same comparison).
 - **#78 Perfect sameness**: confirm when nothing on the slide is bigger, bolder or placed to lead; dismiss when one item clearly leads.
 - **#79 Off-brand colors**: confirm when the image's main color is visibly near the brand color but off; dismiss photos whose colors aren't trying to be the brand's.
+- **#83 Takeaway banner**: confirm when a boxed "key takeaway" strip repeats across slides; dismiss a single one that carries the slide's real conclusion.
+- **#85 Dashboard stat tiles**: confirm when a row of equal tiles gives every number the same weight on a page that isn't a dashboard; dismiss when the page is a real dashboard or the tiles are a sourced comparison.
+- **#88 Bullets left, image right**: confirm when most slides in the deck use this layout whatever the content; dismiss when it appears on a few slides where a picture beside bullets is what the content needs.
 - **#101 Content pushed to the top or bottom** (an extra check, not on the published list): open the slide screenshot named in the finding. Confirm when the content is shoved up under the heading (or down toward the footer) and one side is a big empty band while the other has almost no space, or when most slides in the deck lean the same way. Dismiss when the content is placed on purpose: it is anchored to a bottom strip or a footer element, it is a chart or table that reads best starting right under its title, or the empty side is small next to the content. A single odd slide is worth confirming only when the rest of the deck sits centred between the heading and the footer.
 
 ## Spacing under the heading

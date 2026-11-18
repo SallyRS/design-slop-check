@@ -57,7 +57,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "Three same-size cards, each with an icon, a short heading and two lines of text, used as the whole page structure.",
   "fix": "Break the grid: give the most important item more room, merge the weaker ones into a list, or vary the layout so the items are not three identical boxes."
  },
@@ -103,7 +103,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "One big number with a small label, then a row of round supporting stats.",
   "fix": "Keep only the figures that matter, give each a source or context, and set them in the running layout rather than a row of big numbers."
  },
@@ -221,7 +221,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "Every heading, paragraph, contact line and button sits in its own bordered box. Impeccable calls cards \"the lazy container.\"",
   "fix": "Take most of the boxes away. Group related text with spacing and headings, and keep a box only where something must stand apart."
  },
@@ -249,7 +249,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "Three or more buttons under the headline, then a row of avatar dots and five stars with no source.",
   "fix": "Keep one primary and at most one secondary action under the headline. Remove star ratings and user counts that have no named source, or link them to the source."
  },
@@ -277,7 +277,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "What a page falls back to once the obvious slop is removed: flat gray #161616, Inter, white text and the brand color on one button, even for a warm product like a bakery.",
   "fix": "Choose colors and type that fit this product rather than the flat dark gray, Inter and one accent button."
  },
@@ -322,7 +322,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "Three button styles, two card styles and three link looks on the same screen. Taste requires one of each.",
   "fix": "Keep one style per role: one primary button style, one secondary, one card style, one link style."
  },
@@ -382,7 +382,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "Code-style labels on marketing copy to look technical, not because the text is code or data.",
   "fix": "Use the body or heading font for this text; keep monospace for real code, commands and data."
  },
@@ -612,7 +612,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "The shadcn/ui defaults shipped as-is: zinc grays, black button, 6px corners, gray badge.",
   "fix": "Change the component library's default tokens (grays, radius, primary color, fonts) to the brand's."
  },
@@ -792,7 +792,7 @@
    "shape-assembled-illustration",
    "broken-image"
   ],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "\"Illustrations\" built from basic circles and rectangles, initial-only avatars for made-up people, and broken image boxes.",
   "fix": "Replace placeholder shapes, initials and broken images with real images of the product or people, or remove them."
  },
@@ -809,7 +809,7 @@
   "impeccable_rules": [
    "pulsing-dot"
   ],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "A pulsing \"live\" dot with no live data behind it, and red-yellow-green window dots on a drawn terminal.",
   "fix": "Remove the pulsing dot and fake window dots unless they show real live status or a real window."
  },
@@ -1227,7 +1227,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "A boxed \"key takeaway\" strip at the bottom of slide after slide.",
   "fix": "Remove the takeaway box; make the slide title state the takeaway."
  },
@@ -1255,7 +1255,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "Rows of equal tiles with round numbers, like an app screen, giving every number the same weight.",
   "fix": "Show the one or two numbers that matter with their context, instead of a row of equal tiles."
  },
@@ -1297,7 +1297,7 @@
    "script"
   ],
   "impeccable_rules": [],
-  "needs_confirming": false,
+  "needs_confirming": true,
   "description": "The default Copilot layout repeated slide after slide.",
   "fix": "Change the layout to fit the content: a full-width image, a chart, a quote, or text alone."
  },
